@@ -1,9 +1,11 @@
 package appewtc.masterung.whereewtc23may15;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,7 +14,30 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+    }   // onCreate
+
+    public void clickWhere(View view) {
+
+    }   // clickWhere
+
+    public void clickEWTC(View view) {
+
+        double latEWTC = 13.667573, lngEWTC = 100.621766;
+
+        myIntentToMaps(latEWTC, lngEWTC);
+
+    }   // clickEWTC
+
+    private void myIntentToMaps(double latEWTC, double lngEWTC) {
+
+        Intent objIntent = new Intent(MainActivity.this, MapsActivity.class);
+
+        objIntent.putExtra("latCenter", latEWTC);
+        objIntent.putExtra("lngCenter", lngEWTC);
+
+        startActivity(objIntent);
+
+    }   // myIntentToMaps
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,4 +60,4 @@ public class MainActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}   // Main Class
