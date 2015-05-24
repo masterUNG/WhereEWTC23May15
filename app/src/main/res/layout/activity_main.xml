@@ -34,4 +34,41 @@
             android:layout_weight="1" />
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latitute"
+            android:id="@+id/textView"
+            android:textSize="@dimen/h2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123.456789"
+            android:id="@+id/txtShowLat"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Longitute"
+            android:id="@+id/textView3"
+            android:textSize="@dimen/h2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123.456789"
+            android:id="@+id/txtShowLng"
+            android:textSize="@dimen/h1"
+            android:textStyle="bold" />
+    </LinearLayout>
+
 </RelativeLayout>

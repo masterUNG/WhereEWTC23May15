@@ -14,7 +14,7 @@ public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private LatLng btnBangnaLatLng, btnUdomsukLatLng,
-                    ewtcLatLng;
+                    ewtcLatLng, userLatLng;
 
 
     @Override
@@ -35,6 +35,10 @@ public class MapsActivity extends FragmentActivity {
         btnUdomsukLatLng = new LatLng(13.679892, 100.609557 );  // Location of BTS Udomsuk
         ewtcLatLng = new LatLng(13.667573, 100.621766);         // Location of EWTC
 
+        //Receive From Intent to Create userLatlng
+        double douLat = getIntent().getExtras().getDouble("latUser");
+        double douLng = getIntent().getExtras().getDouble("lngUser");
+        userLatLng = new LatLng(douLat, douLng);
     }   // setupLatLng
 
     @Override
@@ -85,6 +89,13 @@ public class MapsActivity extends FragmentActivity {
                         .fromResource(R.drawable.build5))
                 .title("สถาบัน EWTC")
                 .snippet("สถานที่อบรม แอนดรอยด์ โดย มาสเตอร์ อี่ง"));
+
+        //Create User Maker
+        mMap.addMarker(new MarkerOptions()
+                .position(userLatLng)
+                .icon(BitmapDescriptorFactory
+                        .fromResource(R.drawable.friend))
+                .title("คุณอยู่ที่นี่"));
 
     }   //createMaker
 
