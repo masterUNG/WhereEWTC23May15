@@ -10,6 +10,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
@@ -25,6 +26,7 @@ public class MapsActivity extends FragmentActivity {
                     douBangnaLat = 13.668298, douBangnaLng = 100.604772;
     private PolygonOptions myPolygonOptions;
     private boolean statusABoolean = false;
+    private Polygon objPolygon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,12 +103,18 @@ public class MapsActivity extends FragmentActivity {
             @Override
             public void onMapClick(LatLng latLng) {
                 statusABoolean = !statusABoolean;
-            }
+
+                if (statusABoolean) {
+                    showPolygon();
+                } else {
+                    objPolygon.remove();
+                } // if
+
+
+            }   // event
         });
 
-        if (statusABoolean) {
-            showPolygon();
-        }
+
 
     }
 
@@ -126,7 +134,7 @@ public class MapsActivity extends FragmentActivity {
     }   // createPolygon
 
     private void showPolygon() {
-        mMap.addPolygon(myPolygonOptions);
+        objPolygon = mMap.addPolygon(myPolygonOptions);
     }
 
     private void createNavigator() {
